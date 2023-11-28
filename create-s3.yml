@@ -18,5 +18,5 @@
            #type: example
        #register: s3_url
 
-     - name: Display s3 url
-       debug: var=s3_url
+     #- name: Display s3 url
+       #debug: var=s3_url
