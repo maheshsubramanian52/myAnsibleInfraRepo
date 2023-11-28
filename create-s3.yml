@@ -1,22 +1,18 @@
 ---
- - name:  provisioning S3 Bucket using Ansible playbook
-   hosts: webservers
-   #connection: local
-   gather_facts: False
-   tags: provisioning
-   become: True
-
-   tasks:
-     - name: create S3 bucket
-       amazon.aws.s3_bucket:
-         name: myansibles3bucketmahesh123
-         state: present
-         #region: us-east-1
-         #versioning: yes
-         #tags:
-           #name: myansiblebucket
-           #type: example
-       #register: s3_url
-
-     #- name: Display s3 url
-       #debug: var=s3_url
+- hosts: webservers 
+  become: True
+  tasks:
+    - name: Install packages
+      yum:
+        name: "httpd"
+        state: "present"
+    - name: Start Apache server
+      service:
+        name: httpd
+        state: started
+        enabled: True
+    - name: Deploy static website
+      copy:
+        src: index.html
+        dest: /var/www/html/
+...
