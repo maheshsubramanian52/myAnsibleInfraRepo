@@ -8,7 +8,7 @@
 
    tasks:
      - name: create S3 bucket
-       aws_s3:
+       amazon.aws.s3_bucket:
          name: myansibles3bucketmahesh123
          state: present
          region: us-east-1
