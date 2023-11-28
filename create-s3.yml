@@ -1,9 +1,10 @@
 ---
  - name:  provisioning S3 Bucket using Ansible playbook
-   hosts: localhost
-   connection: local
+   hosts: webservers
+   #connection: local
    gather_facts: False
    tags: provisioning
+   become: True
 
    tasks:
      - name: create S3 bucket
